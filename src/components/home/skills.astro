@@ -1,0 +1,20 @@
+---
+export interface SkillsProps {
+  skills: { category: string; list: string[] }[];
+}
+const { skills } = Astro.props;
+---
+
+<section class="skills">
+  <h2 class="dark:text-light mt-16">Skills</h2>
+  {skills.map(skillCategory => (
+    <div class="skill-category">
+      <h3>{skillCategory.category}</h3>
+      <ul>
+        {skillCategory.list.map(skill => (
+          <li>{skill}</li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</section>
