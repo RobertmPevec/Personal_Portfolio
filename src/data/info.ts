@@ -59,17 +59,15 @@ export const info = {
         "<strong>Bachelor of Science in Computer Science and Mathematics</strong>",
         "✓ Co-authored an academic paper on bias in AI using machine learning under a professor",
         "✓ Team Captain of the university chess club",
-        "✓ Strong foundation in calculus and linear algebra for analytical problem-solving."
+        "✓ Strong foundation in data-structures, calculus and linear algebra."
       ],
     },
   ],
 
   socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=100022899849583",
-    twitter: "https://twitter.com/Uzzii_21",
-    github: "https://github.com/uzzii-21",
-    email: "mailto:uzairahmed@74372gmail.com",
-    linkedin: "https://www.linkedin.com/in/uzzii21/",
+    github: "https://github.com/RobertmPevec",
+    email: "mailto:contact@robertpevec.com",
+    linkedin: "https://www.linkedin.com/in/robert-pevec/",
   },
 
   projects: [

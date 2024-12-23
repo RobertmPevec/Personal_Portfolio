@@ -1,6 +1,6 @@
 ---
 import { info } from "@data";
-
+import "../styles/main.css";
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/home/Hero.astro";
 import Experience from "@components/home/Experience.astro";
@@ -16,7 +16,7 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <MetaHead
       title={"Portfolio"}
@@ -26,7 +26,10 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
   </head>
 
   <body>
+  <div id = "progressbar"></div>
+  <div id = "scrollPath"></div>
     <Layout>
+      
       <Hero name={info.name} about={info.about} />
       <Experience title={"EXPERIENCE"} details={info.experience} />
       <Experience title={"EDUCATION"} details={info.education} />
@@ -35,5 +38,27 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
         <ProjectsWrapper projects={featureProjects} />
       </section>
     </Layout>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const progress = document.getElementById("progressbar");
+    
+        function updateProgressBar() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const totalHeight =
+            document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const progressHeight = (scrollTop / totalHeight) * 100;
+    
+          // Update the progress bar height
+          progress.style.height = progressHeight + "%";
+        }
+    
+        // Attach scroll and resize events
+        window.addEventListener("scroll", updateProgressBar);
+        window.addEventListener("resize", updateProgressBar);
+    
+        // Initialize the progress bar on page load
+        updateProgressBar();
+      });
+    </script>    
   </body>
 </html>

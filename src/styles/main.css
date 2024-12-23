@@ -1,0 +1,45 @@
+#scrollPath {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 100%;
+    background: #ffffff0d;
+  }
+  
+  #progressbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 0%; /* Start with 0 height */
+    background: linear-gradient(to bottom, #9845e8 0%, #33d2ff 40%, #dd5789 80%);
+    background-size: 100% 300%; /* Ensure the gradient spans the full scrollable height */
+    background-position: top; /* Start from the top of the gradient */
+  }
+  
+  #progressbar:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #9845e8 0%, #33d2ff 40%, #dd5789 80%);
+    filter: blur(10px);
+  }
+  
+  #progressbar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #9845e8 0%, #33d2ff 40%, #dd5789 80%);
+    filter: blur(4px);
+  }
+
+  #fixthisshit {
+    font-size: 1.5em;
+  }
