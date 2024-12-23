@@ -139,7 +139,7 @@ function movePointer(x, y) {
     const oy = y - pointerY;
 
     // Reduce the impact by increasing the divisor (e.g., 16 instead of 8)
-    velocity.tx += (ox / 50 * scale) * (touchInput ? 1 : -1);
+    velocity.tx += (ox / 100 * scale) * (touchInput ? 1 : -1);
     velocity.ty += (oy / 50 * scale) * (touchInput ? 1 : -1);
   }
 
