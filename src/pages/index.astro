@@ -41,6 +41,7 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
         <ProjectsWrapper projects={featureProjects} />
       </section>
     </Layout>
+    <canvas id="starry-background"></canvas>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const progress = document.getElementById("progressbar");
@@ -62,6 +63,7 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
         // Initialize the progress bar on page load
         updateProgressBar();
       });
-    </script>    
+    </script>
+    <script src="/src/styles/starry-background-js" defer></script>    
   </body>
 </html>

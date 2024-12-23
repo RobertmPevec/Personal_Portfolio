@@ -2,10 +2,12 @@ export const info = {
   baseUrl: "https://robertpevec.com",
   name: "Robert Pevec",
   jobDescription: "Software Engineer",
-  about: `I’m a Software Engineer based in Waterloo, Ontario, with a proven ability to solve complex problems and build innovative solutions. 
-    My expertise includes Python, C, React, Django, TypeScript, and SQL, complemented by a solid foundation in mathematics and analytical thinking.
-    I excel at creating dynamic web applications, managing databases, and collaborating in team environments to deliver high-quality software. 
-    I am passionate about continuous learning and enjoy leveraging my skills to tackle challenging technical problems.`,
+  about: `I’m a Software Engineer based in Waterloo, Ontario,
+   with a passion for creating new things and solving complex problems. 
+   My skills include Python, C, React, Django, TypeScript, and SQL. With a strong foundation in mathematics
+      and a curiosity for learning, I enjoy building solutions,
+       analyzing information, and approaching challenges with an
+        analytical mindset. Also chess.`,
 
   skills: [ // Moved to the top level of the object
     "Python",
