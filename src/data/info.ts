@@ -2,14 +2,22 @@ export const info = {
   baseUrl: "https://robertpevec.com",
   name: "Robert Pevec",
   jobDescription: "Software Engineer",
-  about: `I’m a Software Engineer based in Waterloo, Ontario,
-   with a passion for creating new things and solving complex problems.
-    My skills include Python, C, HTML, CSS,
-     and JavaScript. With a strong foundation in mathematics
-      and a curiosity for learning, I enjoy building solutions,
-       analyzing information, and approaching challenges with an
-        analytical mindset.
-  `,
+  about: `I’m a Software Engineer based in Waterloo, Ontario, with a proven ability to solve complex problems and build innovative solutions. 
+    My expertise includes Python, C, React, Django, TypeScript, and SQL, complemented by a solid foundation in mathematics and analytical thinking.
+    I excel at creating dynamic web applications, managing databases, and collaborating in team environments to deliver high-quality software. 
+    I am passionate about continuous learning and enjoy leveraging my skills to tackle challenging technical problems.`,
+
+  skills: [ // Moved to the top level of the object
+    "Python",
+    "C",
+    "React",
+    "Django",
+    "HTML",
+    "CSS",
+    "TypeScript",
+    "SQL",
+    "Git",
+  ],
 
   experience: [
     {
@@ -20,10 +28,9 @@ export const info = {
       description: [
         "✓ Improved website load speeds by 20% using React.js optimizations.",
         "✓ Developed backend logic in Django for the product sampling dashboard, supporting 5,000+ daily users.",
-        "✓ Monitored and optimized database performance with tools like pgAdmin and query analysis."
+        "✓ Monitored and optimized database performance with tools like pgAdmin and query analysis.",
       ],
     },
-
     {
       name: "Apprentice Carpenter",
       location: "Local 1256 | Sarnia, ON",
@@ -32,10 +39,9 @@ export const info = {
       description: [
         "✓ Helped run crews to ensure efficient project completion.",
         "✓ Worked with clients to ensure satisfaction and project alignment with expectations.",
-        "✓ Maintained tools and materials, ensuring projects stayed on schedule and within budget."
+        "✓ Maintained tools and materials, ensuring projects stayed on schedule and within budget.",
       ],
     },
-
     {
       name: "Apprentice Roofer",
       location: "Imperial Roofing | Sarnia, ON",
@@ -57,16 +63,17 @@ export const info = {
       endDate: "2027",
       description: [
         "<strong>Bachelor of Science in Computer Science and Mathematics</strong>",
-        "✓ Co-authored an academic paper on bias in AI using machine learning under a professor",
-        "✓ Team Captain of the university chess club",
-        "✓ Strong foundation in data-structures, calculus and linear algebra."
+        "✓ Co-authored an Academic Paper on Bias in AI Using Machine Learning Under a Professor.",
+        "✓ Team Captain of the University Chess Club.",
+        "✓ Strong Foundation in Data Structures, Calculus, and Linear Algebra.",
+        "✓ Finished Stanford University's Machine Learning Specialization.",
       ],
     },
   ],
 
   socialMedia: {
     github: "https://github.com/RobertmPevec",
-    email: "mailto:contact@robertpevec.com",
+    email: "mailto:contact@robert-pevec.com",
     linkedin: "https://www.linkedin.com/in/robert-pevec/",
   },
 

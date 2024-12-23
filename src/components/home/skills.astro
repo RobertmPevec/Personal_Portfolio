@@ -1,20 +1,16 @@
 ---
-export interface SkillsProps {
-  skills: { category: string; list: string[] }[];
-}
-const { skills } = Astro.props;
+import { ISkills } from "@types";
+
+const { title, skills } = Astro.props as ISkills;
 ---
 
-<section class="skills">
-  <h2 class="dark:text-light mt-16">Skills</h2>
-  {skills.map(skillCategory => (
-    <div class="skill-category">
-      <h3>{skillCategory.category}</h3>
-      <ul>
-        {skillCategory.list.map(skill => (
-          <li>{skill}</li>
-        ))}
-      </ul>
-    </div>
-  ))}
+<section class="skills-section mt-16 dark:text-light">
+  <h2 class="w-[15rem]">{title}</h2>
+  <div class="flex flex-wrap gap-4 mt-4">
+    {skills?.map((skill) => (
+      <div class="skill-item bg-slate-200 dark:bg-[#202020] rounded-lg px-4 py-2 shadow-md">
+        {skill}
+      </div>
+    ))}
+  </div>
 </section>

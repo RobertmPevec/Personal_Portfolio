@@ -26,7 +26,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, #9845e8 0%, #33d2ff 40%, #dd5789 80%);
-    filter: blur(10px);
+    filter: blur(4px);
   }
   
   #progressbar:after {

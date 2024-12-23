@@ -35,3 +35,8 @@ export interface IProjects {
 export interface IProjectDetails {
   projectDetail: IProject;
 }
+
+export interface ISkills {
+  title: string;
+  skills: string[];
+}
