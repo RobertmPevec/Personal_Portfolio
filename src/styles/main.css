@@ -48,7 +48,6 @@
     margin: 0;
     width: 100%;
     height: 100vh;
-    background-color: #000;
   }
   
   canvas {
@@ -58,4 +57,80 @@
     width: 100%;
     height: 100%;
     z-index: -1;
+  }
+
+  .styleit {
+    background-color: transparent;
+    border-width: 0.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .styleit:focus {
+    border-color: #33d2ff !important;
+  }
+
+  #radio_buttons {
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  #message {
+    height: 15rem;
+    resize: none;
+  }
+
+  #first-name {
+    height: 3.2rem;
+  }
+
+  #last-name {
+    height: 3.2rem;
+  }
+
+  #email-address {
+    height: 3.2rem;
+  }
+
+  .buttonstyle {
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #6B7280; /* Default button color */
+  
+    width: 100%; /* Full-width button */
+    height: 4rem;
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+  
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 2rem;
+  }
+  
+  .buttonstyle:hover,
+  .buttonstyle:focus-visible {
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+  }
+  
+  .buttonstyle:active {
+    outline-color: #33d2ff; /* Light-blue outline */
+    color: #fff; /* Optional: Change text color when clicked */
   }

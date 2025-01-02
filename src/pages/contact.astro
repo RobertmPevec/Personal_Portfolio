@@ -10,26 +10,72 @@ const Projects = info.projects.map((project) => project);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <MetaHead
-      title={"Projects"}
-      description={"All projects are available on this page."}
+      title={"Contact"}
+      description={"Contact me on this page"}
       ogImageUrl={"/assets/images/profile.png"}
     />
   </head>
 
-  <body>
+  <body class="bg-white dark:bg-black text-black dark:text-white">
     <!-- Canvas Background -->
 
     <!-- Main Content -->
     <Layout>
-      <h1 style="line-height: 1.2;">Projects</h1>
-      <ProjectsWrapper projects={Projects} />
+      <h1 style="line-height: 1.2;">Contact</h1>
+      <form
+       id = "contact-form"
+      method="POST"
+      action="https://formspree.io/f/xzzzjkpn">
+        <div class="flex gap-10">
+          <div class = "w-1/2">
+            <label for="first-name" class="block text-sm font-medium text-black dark:text-white">First Name *</label>
+            <input required type="text" id = "first-name" name = "first-name" class="styleit block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+          <div class = "w-1/2">
+            <label for="last-name" class="  ">Last Name *</label>
+            <input required type="text" id = "last-name" name = "last-name" class="styleit block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          </div>
+        </div>
+        <div class = "grid">
+          <label for="email-address" class="block text-sm font-medium text-black dark:text-white">Email *</label>
+          <input required type="email" id = "email-address" name = "email-address" class="styleit block w-full rounded-md border-white-300 dark:border-gray-700 bg-white dark:bg-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+        </div>
+        <div class = "grid">
+          <label for="message" class="block text-black dark:text-white">Message *</label>
+          <textarea name="message" id="message" class="styleit block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500" required></textarea>
+        </div>
+        <button type="submit" class="buttonstyle">Send</button>
+      </form>
     </Layout>
     <canvas id="starry-background"></canvas>
 
     <!-- Scripts -->
+    <script>
+      document.getElementById("contact-form")?.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the default form submission and redirect
+    
+        const form = event.target as HTMLFormElement; // Cast target to HTMLFormElement
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            headers: { "Accept": "application/json" },
+            body: new FormData(form),
+          });
+    
+          if (response.ok) {
+            alert("Your message has been sent!");
+            form.reset(); // Optionally reset the form fields
+          } else {
+            alert("Something went wrong. Please try again later.");
+          }
+        } catch (error) {
+          alert("Error: Unable to submit the form.");
+        }
+      });
+    </script>
     <script src="/src/styles/starry-background-js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
