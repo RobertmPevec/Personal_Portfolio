@@ -12,11 +12,12 @@ export const info = {
   skills: [ // Moved to the top level of the object
     "Python",
     "C",
-    "React",
     "Django",
     "HTML",
     "CSS",
+    "JavaScript",
     "TypeScript",
+    "React",
     "SQL",
     "Git",
   ],
@@ -65,7 +66,7 @@ export const info = {
       endDate: "2027",
       description: [
         "<strong>Bachelor of Science in Computer Science and Mathematics</strong>",
-        "✓ Co-authored an Academic Paper on Bias in AI Using Machine Learning Under a Professor.",
+        "✓ Authored an Academic Paper on Bias in AI Using Machine Learning Under a Professor.",
         "✓ Team Captain of the University Chess Club.",
         "✓ Strong Foundation in Data Structures, Calculus, and Linear Algebra.",
         "✓ Finished Stanford University's Machine Learning Specialization.",
