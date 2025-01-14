@@ -4,7 +4,7 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://robertpevec.com",
+  site: 'https://robertpevec.com',
   integrations: [
     tailwind(),
     sitemap({
