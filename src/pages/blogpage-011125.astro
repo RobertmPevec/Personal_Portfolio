@@ -1,0 +1,63 @@
+---
+import { info } from "@data";
+
+import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
+import MetaHead from "@components/general/MetaHead.astro";
+import Layout from "@layouts/Layout.astro";
+import "../styles/main.css";
+import "../styles/blog.css";
+
+const Projects = info.projects.map((project) => project);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Blog"}
+      description={"Update Blog posts on this page"}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body class="bg-light dark:bg-dark text-black dark:text-white">
+    <!-- Canvas Background -->
+    <!-- Main Content -->
+    <Layout>
+      <h1>Finance Tracker Website</h1>
+      <h2 class="block text-black dark:text-white">January 11, 2025</h2>
+      <p class="block text-sm font-medium text-black dark:text-white">After starting this finance tracker app 4-5 months ago, I’m finally done! School got in the way for a while, but I spent this past week focusing on it and was able to wrap everything up. It feels good to have a finished product that works the way I envisioned, and it’s been a great way to apply some of the skills I’ve been learning. You can check it out <a href="financeflowtech.com/home">here</a>.</p>
+      <img src="/assets/images/finance-tracker.png" alt="">
+      <p class="block text-sm font-medium text-black dark:text-white">The app helps users track their spending, set budgets, and see where their money is going. I wanted it to be more than just a basic expense tracker, so I integrated the Plaid API to let users securely connect their bank accounts. This makes it much easier to import transactions automatically instead of having to enter everything manually. I also added charts and graphs to help visualize spending trends because, let’s be real, data is always better when you can actually see it.</p>
+      <img src="/assets/images/blog-post.png" alt="">
+      <p class="block text-sm font-medium text-black dark:text-white">
+        I originally planned to work on this app with a group of people but everyone that said they wanted to work on it backed out so maybe that is a lesson for the future. Initially I had some trouble getting the Plaid API set up, but it taught me a lot about connecting the front end and back end and working with Django to manage everything. Balancing the project with school made things tricky. Between assignments and exams, I didn’t have much time to work on it for months. This week, I finally had the chance to focus on it, and I’m really happy to have it finished now.</p>
+    </Layout>
+    <canvas id="starry-background"></canvas>
+
+    <!-- Scripts -->
+    <script src="/src/styles/starry-background-js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const progress = document.getElementById("progressbar");
+    
+        function updateProgressBar() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const totalHeight =
+            document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const progressHeight = (scrollTop / totalHeight) * 100;
+    
+          // Update the progress bar height
+          progress.style.height = progressHeight + "%";
+        }
+    
+        // Attach scroll and resize events
+        window.addEventListener("scroll", updateProgressBar);
+        window.addEventListener("resize", updateProgressBar);
+    
+        // Initialize the progress bar on page load
+        updateProgressBar();
+      });
+    </script>
+  </body>
+</html>

@@ -24,6 +24,17 @@ export const info = {
 
   experience: [
     {
+      name: "Full-Stack Machine Learning Developer",
+      location: "Whizi.io | Waterloo, ON",
+      startDate: "Nov 2024",
+      endDate: "Present",
+      description: [
+        "✓ Helped deploy and maintain over 200 AI models, including GPT-4, Claude 3.5, and Stable Diffusion, ensuring seamless integration across web and mobile platforms for a growing user base of 200+ early adopters.",
+        "✓ Build and optimize scalable front-end and back-end systems to support features like 5000 monthly messages, multimedia generation, and document analysis.",
+        "✓ Manage high-performance APIs for AI models, ensuring secure, efficient data handling and a smooth experience for users in a fast-paced startup environment.",
+      ],
+    },
+    {
       name: "Full-Stack Developer Intern",
       location: "Sampler | Toronto, ON",
       startDate: "Jan 2024",
@@ -43,17 +54,6 @@ export const info = {
         "✓ Helped run crews to ensure efficient project completion.",
         "✓ Worked with clients to ensure satisfaction and project alignment with expectations.",
         "✓ Maintained tools and materials, ensuring projects stayed on schedule and within budget.",
-      ],
-    },
-    {
-      name: "Apprentice Roofer",
-      location: "Imperial Roofing | Sarnia, ON",
-      startDate: "Aug 2020",
-      endDate: "Jun 2021",
-      description: [
-        "✓ Installed and repaired various roofing systems, sheet metal, and flat roofs.",
-        "✓ Resolved on-site issues and made adjustments to meet client expectations.",
-        "✓ Completed Working at heights and First Aid and CPR Certification.",
       ],
     },
   ],
@@ -82,11 +82,32 @@ export const info = {
 
   projects: [
     {
-      title: "Astro Portfolio",
+      title: "Finance Tracker",
       isFeatured: true,
-      thumbnail: "/assets/images/astro-portfolio.png",
-      githubUrl: "https://github.com/uzzii-21/astro-portfolio",
-      liveUrl: "https://astro-portfolio-uzair.vercel.app/",
+      thumbnail: "/assets/images/finance-tracker.png",
+      githubUrl: "https://github.com/RobertmPevec/finance_flow_docs",
+      liveUrl: "https://financeflowtech.com/home",
+    },
+    {
+      title: "Recipe Generator",
+      isFeatured: true,
+      thumbnail: "/assets/images/recipe-generator.png",
+      githubUrl: "https://github.com/RobertmPevec/RecipeGenerator",
+      liveUrl: "https://recipewizard.ca",
+    },
+    {
+      title: "Biased AI Detector (Neural Network)",
+      isFeatured: true,
+      thumbnail: "/assets/images/bias-score.png",
+      githubUrl: "https://github.com/RobertmPevec/BiasLLMModel",
+      liveUrl: "/biasscores",
+    },
+    {
+      title: "Custom Mechanical Keyboard / Keyboard Website",
+      isFeatured: true,
+      thumbnail: "/assets/images/keyboard.png",
+      githubUrl: "/home",
+      liveUrl: "/custom-mechanical-keyboard",
     },
   ],
 };
