@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # Replace with your branch name if different
-  workflow_dispatch: # Allow manual triggering
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4 # Updated to latest stable version
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: npm ci
@@ -23,12 +23,16 @@ jobs:
       - name: Build site
         run: npm run build
 
-      # Debug: List screenshots folder before uploading artifact
       - name: Debug screenshots directory
-        run: ls -l .automated-rendering/screenshot-capture/screenshots/
+        run: |
+          if [ -d ".automated-rendering/screenshot-capture/screenshots/" ]; then
+            ls -l .automated-rendering/screenshot-capture/screenshots/;
+          else
+            echo "Directory does not exist.";
+          fi
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4 # Updated to latest stable version
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
           path: dist
