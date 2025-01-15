@@ -29,9 +29,10 @@ export const info = {
       startDate: "Nov 2024",
       endDate: "Present",
       description: [
-        "✓ Helped deploy and maintain over 200 AI models, including GPT-4, Claude 3.5, and Stable Diffusion, ensuring seamless integration across web and mobile platforms for a growing user base of 200+ early adopters.",
-        "✓ Build and optimize scalable front-end and back-end systems to support features like 5000 monthly messages, multimedia generation, and document analysis.",
-        "✓ Manage high-performance APIs for AI models, ensuring secure, efficient data handling and a smooth experience for users in a fast-paced startup environment.",
+        "✓ Deployed and maintained 200+ AI models for seamless web and mobile integration, supporting 300+ early adopters.",
+        "✓ Built scalable systems with Node.js, React, and PostgreSQL to handle 10000+ monthly messages",
+        "✓ Managed secure, high-performance LLM APIs, ensuring efficient data handling and a smooth user experience.",
+        "✓ Worked closely with a small, dynamic team to rapidly prototype, develop, and deploy innovative features.",
       ],
     },
     {
@@ -43,6 +44,7 @@ export const info = {
         "✓ Improved website load speeds by 20% using React.js optimizations.",
         "✓ Developed backend logic in Django for the product sampling dashboard, supporting 5,000+ daily users.",
         "✓ Monitored and optimized database performance with tools like pgAdmin and query analysis.",
+        "✓ Assisted in migrating legacy code to a modern framework, reducing technical debt and improving maintainability.",
       ],
     },
     {
