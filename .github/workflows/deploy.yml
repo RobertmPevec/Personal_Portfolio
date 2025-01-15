@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # Replace `main` with your branch name if different
+    branches: [ main ] # Replace with your branch name if different
   workflow_dispatch: # Allow manual triggering
 
 permissions:
@@ -14,39 +14,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Updated to latest stable version
 
-      # Step 2: Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # Step 3: Build the Astro project
-      - name: Build the Astro site
+      - name: Build site
         run: npm run build
 
-      # Step 4: Upload the build output as an artifact
+      # Debug: List screenshots folder before uploading artifact
+      - name: Debug screenshots directory
+        run: ls -l .automated-rendering/screenshot-capture/screenshots/
+
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4 # Updated to latest stable version
         with:
           name: github-pages
-          path: dist # The directory containing your built site
+          path: dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
     steps:
-      # Step 1: Download the artifact
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-
-      # Step 2: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
