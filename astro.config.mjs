@@ -4,8 +4,8 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://robertpevec.com', // Your custom domain
-  outDir: './dist', // Default output directory for Astro. Change to "docs" for GitHub Pages if needed.
+  site: 'https://robertpevec.com', // Your site URL
+  outDir: './output-test', // Change the output directory here
   integrations: [
     tailwind(),
     sitemap({
@@ -16,12 +16,12 @@ export default defineConfig({
     }),
     robotsTxt(),
   ],
-  base: '/', // Base path for GitHub Pages (no subfolder for custom domains)
+  base: '/', // Base path for the site
   vite: {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: undefined, // Ensure correct bundling
+          manualChunks: undefined, // Prevent unwanted chunk splitting
         },
       },
     },
