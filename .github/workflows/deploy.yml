@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
+  id-token: write # Add this to ensure ID token permissions
 
 jobs:
   build:
@@ -23,14 +23,6 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Debug screenshots directory
-        run: |
-          if [ -d ".automated-rendering/screenshot-capture/screenshots/" ]; then
-            ls -l .automated-rendering/screenshot-capture/screenshots/;
-          else
-            echo "Directory does not exist.";
-          fi
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -42,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pages: write
+      id-token: write # Add this for the deploy action
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
