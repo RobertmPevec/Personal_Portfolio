@@ -1,0 +1,156 @@
+---
+import { info } from "@data";
+import finaloutput from "../assets/images/finaloutput.mp4";
+import abc from "../assets/images/abc.mp4";
+import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
+import MetaHead from "@components/general/MetaHead.astro";
+import Layout from "@layouts/Layout.astro";
+import "../styles/main.css";
+import "../styles/blog.css";
+
+const Projects = info.projects.map((project) => project);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Blog"}
+      description={"Update Blog posts on this page"}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body class="bg-light dark:bg-dark text-black dark:text-white">
+    <!-- Canvas Background -->
+    <!-- Main Content -->
+    <Layout>
+        <section>
+            <h1>Clip Genius: ML Sports Highlight Generator</h1>
+            <p class="block font-medium text-black dark:text-white">
+                Clip Genius is an advanced Machine Learning tool that processes sports videos to automatically detect score changes
+                and generate highlight clips. Developed during Datathon hosted by Google Waterloo, this project integrates FAISS-based similarity search,
+                Computer Vision (OpenCV), and Multi-threaded Video Processing to streamline sports content creation. Veiw it on github <a href="https://github.com/RobertmPevec/Clip_Genius" style="color: red;" target="_blank">here.</a>
+            </p>
+            <h2 style="margin-bottom: 20px;">Final Output:</h2>
+            <video width="1200" autoplay muted autoplay loop>
+                <source src={finaloutput} type="video/mp4">
+              </video>              
+            </section>
+        
+            <section>
+            <h2 style="margin-top: 40px;">Faiss & Transcription Process:</h2>
+            <h3 style="font-size:larger;">How it works:</h3>
+
+            <h3 style="font-size: larger; margin-top: 20px;">1. Extract Audio</h3>
+            <ul>
+                <li class="block font-medium text-black dark:text-white">Extracts the audio from an MP4 video file and saves it as a WAV file.</li>
+                <li class="block font-medium text-black dark:text-white">Uses FFmpeg to convert the audio to 16kHz mono PCM WAV, ideal for speech recognition.</li>
+            </ul>
+        
+            <h3 style="font-size: larger; margin-top: 20px;">2. Split Audio</h3>
+            <ul>
+                <li class="block font-medium text-black dark:text-white">Breaks the extracted WAV file into 30-second chunks, with an additional 5-second buffer.</li>
+                <li class="block font-medium text-black dark:text-white">Saves each chunk separately in the clips folder for easier processing.</li>
+            </ul>
+        
+            <h3 style="font-size: larger; margin-top: 20px;">3. Process File</h3>
+            <ul>
+                <li class="block font-medium text-black dark:text-white">Transcribes each audio chunk using NeMo ASR.</li>
+                <li class="block font-medium text-black dark:text-white">Converts the transcript into a vector representation using MiniLM.</li>
+                <li class="block font-medium text-black dark:text-white">Ranks clips by similarity to key moments using FAISS.</li>
+            </ul>
+        
+            <h3 style="font-size: larger; margin-top: 20px;">4. Transcribe & Filter</h3>
+            <ul>
+                <li class="block font-medium text-black dark:text-white">Runs the process in parallel (multi-threaded) for efficiency.</li>
+                <li class="block font-medium text-black dark:text-white">Sorts clips by highest relevance to game highlights.</li>
+                <li class="block font-medium text-black dark:text-white">Keeps only the top 40% of relevant clips.</li>
+            </ul>
+        
+            <h3 style="font-size: larger; margin-top: 20px;">5. Merge Clips</h3>
+            <ul>
+                <li class="block font-medium text-black dark:text-white">Combines all highlight clips into one final merged video.</li>
+                <li class="block font-medium text-black dark:text-white">Uses FFmpeg to concatenate clips in the correct order.</li>
+                <li class="block font-medium text-black dark:text-white">Deletes temporary clips after merging to save space.</li>
+            </ul>
+            </section>
+            <section>
+                <h2 style="margin-top: 40px;">OpenCV Scoreboard Detection:</h2>
+                <h3 style="font-size:larger;">How it works:</h3>
+                <p class="block font-medium text-black dark:text-white">The video processing pipeline uses OpenCV, PyTesseract, and FFmpeg to efficiently analyze frames. It starts by opening the video with cv.VideoCapture, resizing frames to 512x512, and detecting the scoreboard using edge detection and Hough Line Transform. Once located, the scoreboard region is extracted, and OCR processes it to recognize scores with a confidence threshold of 75. The detected scores are converted to absolute coordinates, overlaid onto the video, and a timestamp is added.</p>
+                <p class="block font-medium text-black dark:text-white">To optimize performance, only necessary pixels are processed, reducing computational load. OCR extracts numeric scores by cropping and preprocessing the scoreboard area—converting it to grayscale, resizing, and denoising. It then filters non-numeric text, returning a score or zero if no digits are found. This automated approach ensures accurate score tracking and highlight generation.</p>
+                <video width="1200" autoplay muted autoplay loop>
+                    <source src={abc} type="video/mp4">
+                  </video>  
+                <ul >
+                    <li class="block font-medium text-black dark:text-white" style="margin-top: 40px;"><strong>fetch_score_coords(filepath):</strong> Fetches the coordinates of the scoreboard.</li>
+                    <li class="block font-medium text-black dark:text-white"><strong>split_video(filepath, SEGMENT_SIZE, tempfulder, "segments_%03d.mp4"):</strong> Splits the video into smaller segments for parallel processing.</li>
+                    <li class="block font-medium text-black dark:text-white"><strong>analyze_segments_with_threads(tempfulder, cords):</strong> Analyzes the video segments concurrently using multiple threads.</li>
+                    <li class="block font-medium text-black dark:text-white"><strong>sorted(results):</strong> Sorts the results from all threads.</li>
+                    <li class="block font-medium text-black dark:text-white"><strong>process_results(filepath, results):</strong> Processes the results. Returns contrul to the script.</li>
+                </ul>
+            </section>
+            <section>
+            <h2 style="margin-top: 40px;">User Interface</h2>
+            <p class="block font-medium text-black dark:text-white" style="margin-top: 20px;">The frontend of Clip Genius is built using PyQt5, providing a sleek and interactive GUI for users to generate AI-powered sports highlights. It simplifies the complex backend processing into an intuitive interface where users can:</p>
+            <img
+            src="/assets/images/frontend.png"
+            alt="Frontend"
+            style="max-width: 1200px;"
+            />
+            <ul>
+                <li class="block font-medium text-black dark:text-white" style="margin-top: 20px;"><strong>•</strong> Upload a sports video for analysis.</li>
+                <li class="block font-medium text-black dark:text-white"><strong>•</strong> Select highlight duration (e.g., 1, 5, or 10 minutes).</li>
+                <li class="block font-medium text-black dark:text-white"><strong>•</strong> Choose transcript options (e.g., English, French, or Spanish).</li>
+                <li class="block font-medium text-black dark:text-white"><strong>•</strong> Generate highlights with a single click and return MP4</li>
+            </ul>
+            </section>
+            <section>
+            <h2 style="margin-top: 40px;">Technologies Used</h2>
+            <p class="block font-medium text-black dark:text-white">
+                Our ML video processing system utilizes the following key technologies:
+            </p>
+            <ul>
+                <li class="block font-medium text-black dark:text-white"><strong>FAISS</strong> - Fast similarity search for detecting key game moments.</li>
+                <li class="block font-medium text-black dark:text-white"><strong>OpenCV</strong> - Real-time scoreboard and object detection.</li>
+                <li class="block font-medium text-black dark:text-white"><strong>pytesseract</strong> - OCR for extracting numeric scores from images.</li>
+                <li class="block font-medium text-black dark:text-white"><strong>FFmpeg</strong> - Video processing and clip generation.</li>
+                <li class="block font-medium text-black dark:text-white"><strong>Python Multiprocessing</strong> - Efficiently processes video segments in parallel.</li>
+                <li class="block font-medium text-black dark:text-white"><strong>PyQt5</strong> - GUI framework for building an interactive and user-friendly application.</li>
+            </ul>
+            </section>
+        
+            <section>
+            <h2 style="margin-top: 40px;">Acknowledgments</h2>
+            <p class="block font-medium text-black dark:text-white">
+                We extend our gratitude to <strong>Laurier Analytics</strong> and <strong>Google Waterloo</strong> for
+                organizing the datathon, providing mentorship, and fostering innovation in AI and data science.<br>
+                Also shout out to the GOAT <a href="https://www.linkedin.com/in/shivamgarg--/" style="color: red;" target="_blank">Shavam Garg 🐐</a>
+            </p>
+            <p class="block font-medium text-black dark:text-white"><em>Contributors:</em> Robert Pevec, <a href="https://jashandeep.co.uk/" style="color: red;" target="_blank">JD</a>, <a href="https://www.linkedin.com/in/sawaabanas/" style="color: red;" target="_blank">Swaab Anas</a>, <a href="https://www.instagram.com/suhaana.wav/?hl=en" style="color: red;" target="_blank">Suhana Khullar</a></p>
+            <p class="block font-medium text-black dark:text-white">Source Code: <a href="https://github.com/RobertmPevec/Clip_Genius" target="_blank" style="color: red;">GitHub Repository</a></p>
+        </section>
+    </Layout>
+    <canvas id="starry-background"></canvas>
+
+    <!-- Scripts -->
+    <script src="/starry-background-js.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const progress = document.getElementById("progressbar");
+    
+        function updateProgressBar() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const totalHeight =
+            document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const progressHeight = (scrollTop / totalHeight) * 100;
+          progress.style.height = progressHeight + "%";
+        }
+        window.addEventListener("scroll", updateProgressBar);
+        window.addEventListener("resize", updateProgressBar);
+        updateProgressBar();
+      });
+    </script>
+  </body>
+</html>
