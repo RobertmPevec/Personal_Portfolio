@@ -77,6 +77,7 @@ const Projects = info.projects.map((project) => project);
             </section>
             <section>
               <!-- AWS please compile! -->
+              <!-- AWS please compile! -->
                 <h2 style="margin-top: 40px;">OpenCV Scoreboard Detection:</h2>
                 <h3 style="font-size:larger;">How it works:</h3>
                 <p class="block font-medium text-black dark:text-white">The video processing pipeline uses OpenCV, PyTesseract, and FFmpeg to efficiently analyze frames. It starts by opening the video with cv.VideoCapture, resizing frames to 512x512, and detecting the scoreboard using edge detection and Hough Line Transform. Once located, the scoreboard region is extracted, and OCR processes it to recognize scores with a confidence threshold of 75. The detected scores are converted to absolute coordinates, overlaid onto the video, and a timestamp is added.</p>
