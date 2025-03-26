@@ -1,0 +1,123 @@
+---
+import { info } from "@data";
+
+import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
+import finaloutput from "/public/assets/images/AIaspect.mp4";
+import MetaHead from "@components/general/MetaHead.astro";
+import Layout from "@layouts/Layout.astro";
+import "../styles/main.css";
+import "../styles/blog.css";
+
+const Projects = info.projects.map((project) => project);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Blog"}
+      description={"Update Blog posts on this page"}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body class="bg-light dark:bg-dark text-black dark:text-white">
+    <!-- Canvas Background -->
+    <!-- Main Content -->
+    <Layout>
+        <h1>Better Web</h1>
+        <p class="block text-black dark:text-white">Proud to share BetterWeb, a Chrome extension we built during Canada's largest hackathon GenAI Genesis that empowers users with disabilities to take control of their web experience</p>
+        <img
+        src="/assets/images/options.png"
+        alt="Frontend"
+        style="max-width: 1200px;"
+        />
+        <h2 class="block text-black dark:text-white" style="margin-top: 40px;">What it does:</h2>
+        <p class="block text-black dark:text-white">BetterWeb is a customizable AI-powered accessibility toolkit for people with:</p>
+        <ul style="margin-bottom: 40px;">
+            <li class="block text-black dark:text-white">• ADHD</li>
+            <li class="block text-black dark:text-white">• Dyslexia</li>
+            <li class="block text-black dark:text-white">• Color blindness</li>
+            <li class="block text-black dark:text-white">• Sensory sensitivities</li>
+            <li class="block text-black dark:text-white">• Cognitive impairments</li>
+            <li class="block text-black dark:text-white">• Visual impairments</li>
+        </ul>
+        <h3 style="font-size:larger;">Startup Page:</h3>
+        <img
+        src="/assets/images/options2.png"
+        alt="Frontend"
+        style="max-width: 1200px;"
+        />
+        <p class="block text-black dark:text-white" style="margin-top: 40px;">From soft-tone theming to real-time text-to-speech and layout adjustments, BetterWeb adapts the web to you — not the other way around.</p>
+        <h2 class="block text-black dark:text-white">How we implemented AI: </h2>
+        <p class="block text-black dark:text-white">To enable real-time, AI-powered web customization via natural language, we integrated Cohere’s Command R+ model and then fine-tuned a custom variant using structured prompt-completion data focused specifically on web accessibility tasks.</p>
+        <video width="1200" autoplay muted autoplay loop controls>
+            <source src={finaloutput} type="video/mp4">
+          </video>
+        <p class="block text-black dark:text-white" style="margin-top: 40px;">The objective was to allow users to input natural language commands (e.g. "increase font size of all paragraphs") and dynamically generate JavaScript that modifies the page's DOM in a meaningful, safe, and context-aware way — without ever touching the code.</p>
+        <p class="block text-black dark:text-white">We used Cohere’s v2 endpoint and their fine-tuning pipeline. Our dataset contained hundreds of paired samples in JSONL format, like:</p>
+        <ul>
+            <li class="block text-black dark:text-white"> 
+                <code>
+                "prompt": "Make all links red and underlined", "completion": "document.querySelectorAll('a').forEach(el =&gt; el.style.color = 'red'; el.style.textDecoration = 'underline';);"
+              </code>
+            </li>
+            <p class="block text-black dark:text-white" style="margin-top: 40px;">This model was fine-tuned to specialize in generating vanilla JS DOM manipulation code directly from accessibility-related user instructions.</p>
+            <p>
+                <ul>
+                    <li class="block text-black dark:text-white">• Targeting elements via tag/class/role</li>
+                    <li class="block text-black dark:text-white">• Applying multiple style rules per element</li>
+                    <li class="block text-black dark:text-white">• Scoping modifications to avoid breaking layout</li>
+                    <li class="block text-black dark:text-white">• Avoiding redundant or unsafe operations (e.g., mass deletes, script injections)</li>
+                </ul>
+            </p>
+        </ul>
+        <h2 class="block text-black dark:text-white" style="margin-top: 40px;">Tech Stack: </h2>
+        <img
+        src="/assets/images/techstack.jpg"
+        alt="Frontend"
+        style="max-width: 1200px;"
+        />
+        <p>
+            <ul>
+                <li class="block text-black dark:text-white"><b>HTML/CSS/JavaScript: </b>Core front-end technologies for building the Chrome extension interface.</li>
+                <li class="block text-black dark:text-white"><b>Chrome Extensions API (Manifest V3): </b>Browser integration for popup, content, and background scripts.</li>
+                <li class="block text-black dark:text-white"><b>Cohere API (v2): </b>Fine-tuned LLM for generating DOM manipulation code from natural language.</li>
+                <li class="block text-black dark:text-white"><b>Google Text-to-Speech (TTS): </b>For reading highlighted text aloud to support blind/low-vision users.</li>
+                <li class="block text-black dark:text-white"><b>DOM Manipulation: </b>Dynamic accessibility changes based on AI instructions.</li>
+                <li class="block text-black dark:text-white"><b>JSONL Dataset: </b>Custom structured training data for model fine-tuning.</li>
+                <li class="block text-black dark:text-white"><b>Chrome Storage API: </b>Used to persist user accessibility preferences and settings locally in the browser.</li>
+            </ul>
+        </p>
+        <p class="block text-black dark:text-white">Want to try it for yourself? Clone the repo <a href="https://github.com/RobertmPevec/Better-Web--Chrome-Extension" style="color: red;" target="_blank">here</a>.</p>
+        <p class="block text-black dark:text-white"><b>Let’s build a better, more inclusive web — together.</b></p>
+        <p class="block text-black dark:text-white">Huge thanks to everyone who contributed to BetterWeb: <a href="https://github.com/VanshAnand1" style="color: red;" target="_blank">Vansh Anand</a>, <a href="https://github.com/WarrickT" style="color: red;" target="_blank">Warrick Tsui</a>, and <a href="https://github.com/SawaabA" style="color: red;" target="_blank">Sawaab Anas</a>.</p>
+    </Layout>
+    <canvas id="starry-background"></canvas>
+
+    <!-- Scripts -->
+    <script src="/starry-background-js.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const progress = document.getElementById("progressbar");
+    
+        function updateProgressBar() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const totalHeight =
+            document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const progressHeight = (scrollTop / totalHeight) * 100;
+    
+          // Update the progress bar height
+          progress.style.height = progressHeight + "%";
+        }
+    
+        // Attach scroll and resize events
+        window.addEventListener("scroll", updateProgressBar);
+        window.addEventListener("resize", updateProgressBar);
+    
+        // Initialize the progress bar on page load
+        updateProgressBar();
+      });
+    </script>
+  </body>
+</html>

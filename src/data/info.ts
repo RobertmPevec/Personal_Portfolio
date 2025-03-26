@@ -84,7 +84,7 @@ export const info = {
 
   projects: [
     {
-      title: "Finance Tracker",
+      title: "Finance Flow: Spending Tracker for Businesses",
       isFeatured: true,
       thumbnail: "/assets/images/financeflow.png",
       githubUrl: "https://github.com/RobertmPevec/finance_flow_docs",
@@ -124,6 +124,20 @@ export const info = {
       thumbnail: "/assets/images/groceryhawk.png",
       githubUrl: "https://github.com/RobertmPevec/Clip_Genius",
       liveUrl: "http://groceryhawk.food/",
+    },
+    {
+      title: "Better Web: Chrome Extension for Better Web Accesibility",
+      isFeatured: false,
+      thumbnail: "/assets/images/optionsthumbnail.png",
+      githubUrl: "https://github.com/RobertmPevec/Better-Web--Chrome-Extension",
+      liveUrl: "/betterweb",
+    },
+    {
+      title: "NexDigital (Coming Soon)",
+      isFeatured: false,
+      thumbnail: "/assets/images/NexDigitalThumbnail.png",
+      githubUrl: "https://github.com/RobertmPevec/NexDigital",
+      liveUrl: "https://github.com/RobertmPevec/NexDigital",
     },
   ],
 };
