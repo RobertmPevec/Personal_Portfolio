@@ -39,6 +39,9 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
       <section>
         <h2 class="w-[15rem] dark:text-light mt-16">FEATURE PROJECTS</h2>
         <ProjectsWrapper projects={featureProjects} />
+        <div class="flex justify-center mt-6">
+          <a href="/projects" class="inline-block py-2 px-4 border border-black dark:border-white text-black dark:text-white bg-transparent rounded transition-transform hover:scale-105" style="margin-bottom: 40px;">View All Projects</a>
+        </div>
       </section>
     </Layout>
     <canvas id="starry-background"></canvas>
