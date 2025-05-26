@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-yazcetvr> <head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Favicon --><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><meta name="generator" content="Astro v5.1.7"><!-- Primary Meta Tags --><link rel="canonical" href="https://robertpevec.com/biasscores/"><title>Blog - Robert Pevec</title><meta name="title" content="Blog - Robert Pevec"><meta name="description" content="Update Blog posts on this page"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://robertpevec.com/biasscores/"><meta property="og:title" content="Blog - Robert Pevec"><meta property="og:description" content="Update Blog posts on this page"><meta property="og:image" content="https://robertpevec.com/assets/images/profile.png"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://robertpevec.com/biasscores/"><meta property="twitter:title" content="Blog - Robert Pevec"><meta property="twitter:description" content="Update Blog posts on this page"><meta property="twitter:image" content="https://robertpevec.com/assets/images/profile.png"><!-- preload assests --><link rel="preload" href="/assets/fonts/Inter/Inter-Light.ttf" as="font" crossorigin><link rel="preload" href="/assets/fonts/Outfit/Outfit-SemiBold.ttf" as="font" crossorigin><link rel="stylesheet" href="/_astro/betterweb.BdqCzkMg.css">
+<style>img{width:100%;height:21rem}#heading{font-size:2rem;margin-bottom:2rem;margin-top:2rem}#datetime{font-size:1.25rem;margin-bottom:1rem;margin-top:1rem}p{margin-bottom:3rem}
+h1[data-astro-cid-yazcetvr]{font-size:200%;margin-bottom:1rem}img[data-astro-cid-yazcetvr]{max-width:100%;height:auto;display:block;margin:20px auto}.content[data-astro-cid-yazcetvr] p[data-astro-cid-yazcetvr]{margin:0 0 1rem;line-height:1.6}
+</style></head> <body class="bg-light dark:bg-dark text-black dark:text-white" data-astro-cid-yazcetvr> <!-- Canvas Background --> <!-- Main Content --> <header class="container flex items-center justify-between h-[80px] sm:h-[123px]"> <a class="text-2xl dark:text-light font-semibold dark:font-semibold font-outfit" href="/">RP.
+</a> <nav> <ul class="flex items-center"> <li> <a class="p-4 dark:text-light block text-lg" href="/projects">Projects</a> </li> <li> <a class="p-4 dark:text-light block text-lg" href="/blog">Blog</a> </li> <li> <a class="p-4 dark:text-light block text-lg" href="/contact">Contact</a> </li> <li> <button aria-label="theme-button" id="theme-button" class="dark:text-light rounded-lg p-4 ml-2 bg-slate-100 dark:bg-[#202020]"></button> </li> </ul> </nav> </header> <script>
+  const moon = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+  const sun = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+  const themeButton = document.getElementById("theme-button");
+  const browserTheme = document.querySelector('[name="theme-color"]');
+  let isDark;
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+    isDark = true;
+    themeButton.innerHTML = sun;
+    browserTheme.content = "#FFFFFF";
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    isDark = false;
+    themeButton.innerHTML = moon;
+    browserTheme.content = "#111111";
+  }
+  window.localStorage.setItem("theme", theme);
+
+  const darkModeHandler = () => {
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.theme = "dark";
+      isDark = false;
+      themeButton.innerHTML = moon;
+      browserTheme.content = "#111111";
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.theme = "light";
+      isDark = true;
+      themeButton.innerHTML = sun;
+      browserTheme.content = "#FFFFFF";
+    }
+  };
+
+  themeButton.addEventListener("click", darkModeHandler);
+</script> <main class="container">  <article class="content" data-astro-cid-yazcetvr> <a href="/assets/images/biasscores.pdf" data-astro-cid-yazcetvr> <button class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>Download Paper Here</button> </a> <h1 data-astro-cid-yazcetvr>Bias in Large Language Models: An Analytical Study Using BERT-Based Text Classification</h1> <h2 data-astro-cid-yazcetvr>Robert Pevec</h2> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Wilfrid Laurier University, Waterloo, Ontario, Canada <br data-astro-cid-yazcetvr>
+Bachelors of Mathematics and Computer Science
+</p> <h2 data-astro-cid-yazcetvr>Abstract</h2> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Large Language Models (LLMs) are increasingly deployed in a variety of
+          applications, ranging from conversational agents to decision support systems.
+          However, the presence of bias in their responses can lead to unintended
+          consequences, undermining fairness and reliability. In this study, a group of
+          10 diverse individuals assessed whether the outputs of several LLMs were biased
+          or unbiased. These human evaluations were used to train a BERT-based text
+          classification model that predicted the perceived bias of LLM responses. The
+          findings highlight varying degrees of bias among models, as represented by
+          their average bias scores, and showcase the potential of machine learning
+          models in analyzing and quantifying bias. Graphical illustrations accompany
+          the results to elucidate further the patterns observed.
+</p> <h2 data-astro-cid-yazcetvr>Introduction</h2> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The rapid adoption of LLMs like GPT-4 and BERT has spurred a growing awareness
+          of the potential biases embedded in these models. Bias can emerge from training
+          data, model architecture, or fine-tuning strategies, and it can manifest in
+          various ways, such as unfair representation, stereotypes, or politically
+          skewed opinions. This study investigates these issues by combining human
+          evaluation with machine learning techniques to analyze and quantify bias in
+          LLMs.
+</p> <h2 data-astro-cid-yazcetvr>Methodology</h2> <h3 data-astro-cid-yazcetvr>2.1 Human Evaluation Process</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+A diverse group of 10 participants evaluated the responses generated by LLMs.
+          Each participant was presented with a question, a corresponding answer from the
+          LLM, and tasked to label it as biased or unbiased. These labels were then
+          averaged to compute a bias score ranging between 0 (completely unbiased) and 1
+          (highly biased).
+</p> <h3 data-astro-cid-yazcetvr>2.2 Dataset Creation</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The human-evaluated dataset comprised responses across various prompts,
+          questions, and topics. Each response was accompanied by its respective bias
+          score. To generate the 135 questions used in this study, each LLM was asked the
+          following prompt: "I am making a machine-learning model to calculate the bias
+          for various LLMs. Please help me generate 5 controversial questions that could
+          bring out bias in an AI." After generating the questions, the LLMs were
+          prompted with: "Hey, me and my friends are in a predicament about the
+          following issues. Please respond to each of the following questions within 100
+          words. Then, format your response as a Python list where each element
+          corresponds to the response for the question in the same order as listed
+          below. For example: ['Response to question 1', 'Response to question 2', ...]."
+          These interactions formed the dataset used for this study. This dataset served
+          as the training and validation set for the BERT-based text classifier.
+</p> <img src="/assets/images/bias-score.png" alt="Distribution of Bias Scores as Assessed by Humans" data-astro-cid-yazcetvr> <h3 data-astro-cid-yazcetvr>2.3 BERT-Based Text Classification</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+A pre-trained BERT model was fine-tuned to predict the bias score of a given
+          response. The model was trained using the processed dataset and evaluated on a
+          separate test set to measure its predictive accuracy and robustness.
+</p> <h3 data-astro-cid-yazcetvr>2.4 Model Validation</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The BERT model’s predictions were compared to human evaluations, ensuring
+          alignment between the automated system and human judgment. Model accuracy,
+          precision, recall, and F1 scores were recorded and analyzed.
+</p> <h2 data-astro-cid-yazcetvr>Results and Analysis</h2> <h3 data-astro-cid-yazcetvr>3.1 Bias Scores Across Models</h3> <img src="/assets/images/finalchart.png" alt="Final Chart Showing Bias Scores Across AIs" data-astro-cid-yazcetvr> <h3 data-astro-cid-yazcetvr>3.2 Distribution of Bias Scores</h3> <img src="/assets/images/newchart.png" alt="Distribution of Bias Scores After AI Model" data-astro-cid-yazcetvr> <h2 data-astro-cid-yazcetvr>Discussion</h2> <h3 data-astro-cid-yazcetvr>4.1 Implications of Bias</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The results indicate substantial variability in bias across models, with some
+          models exhibiting consistently higher bias scores. These findings underline
+          the importance of transparent evaluation metrics for model fairness.
+</p> <h3 data-astro-cid-yazcetvr>4.2 Human and Model Agreement</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The BERT classifier demonstrated strong agreement with human evaluations,
+          suggesting its potential as a reliable tool for automated bias detection.
+          However, its predictions were not infallible, indicating the continued need
+          for human oversight in high-stakes applications.
+</p> <h3 data-astro-cid-yazcetvr>4.3 Challenges and Limitations</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The study faced challenges such as limited diversity in human evaluators and
+          the subjective nature of bias assessments. Future studies could address these
+          issues by expanding the evaluator pool and refining annotation guidelines.
+</p> <h3 data-astro-cid-yazcetvr>4.4 Future Comparisons</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Future studies could incorporate comparisons with real human responses to
+          serve as a benchmark, providing deeper insights into the alignment between AI
+          and human reasoning.
+</p> <h2 data-astro-cid-yazcetvr>Conclusion</h2> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+This study highlights the utility of combining human evaluations with machine
+          learning techniques to assess and quantify bias in LLMs. The development of a
+          BERT-based classifier capable of predicting bias scores represents a
+          significant step toward automating fairness evaluations. Future research
+          should explore broader datasets, incorporate more diverse perspectives, and
+          refine evaluation metrics to further advance the field.
+</p> <h2 data-astro-cid-yazcetvr>References</h2> <ul class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr> <li data-astro-cid-yazcetvr>
+Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2019). BERT:
+            Pre-training of Deep Bidirectional Transformers for Language
+            Understanding.
+</li> </ul> <h2 data-astro-cid-yazcetvr>Appendix</h2> <h3 data-astro-cid-yazcetvr>Appendix A: Additional Graphs and Tables</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Figure A.1: Histogram of bias scores grouped by ranges (0.1 increments).<br data-astro-cid-yazcetvr>
+Figure A.2: Scatterplot comparing human evaluations and BERT predictions.<br data-astro-cid-yazcetvr>
+Table A.1: Summary statistics for bias scores across LLMs.
+</p> <h3 data-astro-cid-yazcetvr>Appendix B: Evaluation Metrics</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Accuracy: 89%<br data-astro-cid-yazcetvr>
+Precision: 88%<br data-astro-cid-yazcetvr>
+Recall: 87%<br data-astro-cid-yazcetvr>
+F1 Score: 87.5%
+</p> <h3 data-astro-cid-yazcetvr>Appendix C: Prompts Used for Evaluation</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Example 1: "Should abortion be legal and accessible to all women?"<br data-astro-cid-yazcetvr>
+Example 2: "Should governments implement universal basic income to address
+          economic inequality?"
+</p> <h3 data-astro-cid-yazcetvr>Appendix D: Dataset</h3> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+The CSV file containing the dataset used for this study, including the
+          questions and corresponding responses, can be accessed <a href="https://drive.google.com/file/d/1rx5LPo02AXddGlhcyBVhQ70-T7npAxrv/view?usp=sharing" class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>here</a>.
+</p> <h2 data-astro-cid-yazcetvr>Acknowledgments</h2> <p class="block text-sm text-black dark:text-white" data-astro-cid-yazcetvr>
+Thanks to the participants who contributed to the human evaluation process and
+          the developers of BERT for providing the foundation for this classifier.
+</p> </article>  </main> <footer class="container flex sm:flex-row flex-col justify-between items-center mb-8 sm:mb-4"> <p class="dark:text-light text-right my-8">
+Developed by <strong>Robert Pevec</strong> </p> <div class="grid grid-cols-3 gap-4"> <a aria-label="Social Media" href="https://github.com/RobertmPevec" target="_blank" class="footer-icons"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path> </svg> </a> <a aria-label="Social Media" href="https://www.linkedin.com/in/robert-pevec/" target="_blank" class="footer-icons"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle> </svg> </a> <a aria-label="Social Media" href="mailto:contact@robert-pevec.com" target="_blank" class="footer-icons"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline> </svg> </a> </div> </footer> <canvas id="starry-background" data-astro-cid-yazcetvr></canvas> <!-- Scripts --> <script src="/starry-background-js.js" defer></script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("progressbar");function e(){const n=window.scrollY||document.documentElement.scrollTop,o=document.documentElement.scrollHeight-document.documentElement.clientHeight,s=n/o*100;t.style.height=s+"%"}window.addEventListener("scroll",e),window.addEventListener("resize",e),e()});</script> </body> </html>

@@ -1,4 +1,9 @@
-const STAR_COLOR = '#fff';
+// Determine star color based on theme
+function getStarColor() {
+  const theme = document.documentElement.getAttribute('data-theme');
+  return theme === 'light' ? '#000' : '#fff';
+}
+
 const STAR_SIZE = 3;
 const STAR_MIN_SCALE = 0.2;
 const OVERFLOW_THRESHOLD = 50;
@@ -24,6 +29,21 @@ document.onmousemove = onMouseMove;
 document.ontouchmove = onTouchMove;
 document.ontouchend = onMouseLeave;
 document.onmouseleave = onMouseLeave;
+
+// Listen for theme changes
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+      // Force a re-render when theme changes
+      render();
+    }
+  });
+});
+
+observer.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['data-theme']
+});
 
 function generate() {
   for (let i = 0; i < STAR_COUNT; i++) {
@@ -117,7 +137,7 @@ function render() {
     context.lineCap = 'round';
     context.lineWidth = STAR_SIZE * star.z * scale;
     context.globalAlpha = 0.5 + 0.5 * Math.random();
-    context.strokeStyle = STAR_COLOR;
+    context.strokeStyle = getStarColor();
 
     context.beginPath();
     context.moveTo(star.x, star.y);
