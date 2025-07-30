@@ -24,19 +24,31 @@ export const info = {
 
   experience: [
     {
+      name: "AI Software Engineer",
+      location: "Appficiency | Mississauga, ON",
+      startDate: "Sep 2025",
+      endDate: "Present",
+      description: [
+        "✓ Built Next.js API routes to process inputs, run LangChain pipelines, and stream AI to front‑end",
+        "✓ Styled interactive UI with Next.js 15 and Tailwind CSS v4 for a sleek, fluid AI experience",
+        "✓ Used GCE custom types, per‑second billing and managed instance groups to cut costs 25% and scale VMs",
+        "✓ Collaborated with executives to define AI feature requirements and shape the product roadmap."
+      ],
+    },
+    {
       name: "Full-Stack Machine Learning Developer",
       location: "Whizi.io | Waterloo, ON",
       startDate: "Nov 2024",
-      endDate: "Present",
+      endDate: "Jan 2025",
       description: [
-        "✓ Deployed and maintained 200+ AI models for seamless web and mobile integration, supporting 300+ early adopters.",
+        "✓ Deployed and maintained 200+ AI models for seamless web and mobile integration",
         "✓ Built scalable systems with Node.js, React, and PostgreSQL to handle 10000+ monthly messages",
         "✓ Managed secure, high-performance LLM APIs, ensuring efficient data handling and a smooth user experience.",
         "✓ Worked closely with a small, dynamic team to rapidly prototype, develop, and deploy innovative features.",
       ],
     },
     {
-      name: "Full-Stack Developer Intern",
+      name: "Full-Stack Software Engineer",
       location: "Sampler | Toronto, ON",
       startDate: "Jan 2024",
       endDate: "Apr 2024",
