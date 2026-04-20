@@ -24,14 +24,14 @@ export const info = {
 
   experience: [
     {
-      name: "AI Software Engineer",
-      location: "Appficiency | Mississauga, ON",
+      name: "AI Software Engineer Intern",
+      location: "Appficiency (askcipher.com) | Toronto, ON",
       startDate: "Sep 2025",
-      endDate: "Present",
+      endDate: "Apr 2026",
       description: [
-        "✓ Built Next.js API routes to process inputs, run LangChain pipelines, and stream AI to front‑end",
-        "✓ Styled interactive UI with Next.js 15 and Tailwind CSS v4 for a sleek, fluid AI experience",
-        "✓ Used GCE custom types, per‑second billing and managed instance groups to cut costs 25% and scale VMs",
+        "✓ Developed an agentic web vision agent using Playwright and LangGraph to automate CRM tasks, achieving 95% task completion through iterative LLM reasoning.",
+        "✓ Engineered a passive learning layer using Neo4j and vector embeddings to index successful execution paths, reducing average query time by 30 seconds and cutting token costs by 25%.",
+        "✓ Developed a multi-agent orchestration layer for 10+ bizapps, integrating custom OAuth 2.0 flows and backend API toolsets to remove context bloat and boost consistency across secure automated workflows.",
         "✓ Collaborated with executives to define AI feature requirements and shape the product roadmap."
       ],
     },
@@ -83,7 +83,6 @@ export const info = {
         "✓ Authored an Academic Paper on Bias in AI Using Machine Learning Under a Professor.",
         "✓ Team Captain of the University Chess Club.",
         "✓ Strong Foundation in Data Structures, Calculus, and Linear Algebra.",
-        "✓ Finished Stanford University's Machine Learning Specialization.",
       ],
     },
   ],

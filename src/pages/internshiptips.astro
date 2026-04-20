@@ -1,0 +1,76 @@
+---
+import { info } from "@data";
+
+import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
+import MetaHead from "@components/general/MetaHead.astro";
+import Layout from "@layouts/Layout.astro";
+import "../styles/main.css";
+import "../styles/blog.css";
+
+const Projects = info.projects.map((project) => project);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Getting Internship"}
+      description={"Update Blog posts on this page"}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+    <style>
+      h1 {
+        font-size: 200%;
+        margin-bottom: 1rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .content p {
+        margin: 0 0 1rem 0;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body class="bg-light dark:bg-dark text-black dark:text-white">
+    <Layout>
+      <article class="content">
+        <h1>Getting an Software Engineer internship through cold applying is DEAD</h1>
+        <p class="block text-sm text-black dark:text-white">Aug 1, 2025</p>
+        <p>Since I started university I have applied to 100's of SWE internships online through cold applying  </p>
+      </article>
+    </Layout>
+    <canvas id="starry-background"></canvas>
+
+    <!-- Scripts -->
+    <script src="/starry-background-js.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const progress = document.getElementById("progressbar");
+
+        function updateProgressBar() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const totalHeight =
+            document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const progressHeight = (scrollTop / totalHeight) * 100;
+
+          // Update the progress bar height
+          progress.style.height = progressHeight + "%";
+        }
+
+        // Attach scroll and resize events
+        window.addEventListener("scroll", updateProgressBar);
+        window.addEventListener("resize", updateProgressBar);
+
+        // Initialize the progress bar on page load
+        updateProgressBar();
+      });
+    </script>
+  </body>
+</html>

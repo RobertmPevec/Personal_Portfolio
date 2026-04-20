@@ -28,7 +28,7 @@ const Projects = info.projects.map((project) => project);
       <form
        id = "contact-form"
       method="POST"
-      action="https://formspree.io/f/xdkkjldo">
+      action="https://formspree.io/f/xzzzjkpn">
         <div class="flex gap-10">
           <div class = "w-1/2">
             <label for="first-name" class="block text-sm font-medium text-black dark:text-white">First Name *</label>
@@ -42,6 +42,18 @@ const Projects = info.projects.map((project) => project);
         <div class = "grid">
           <label for="email-address" class="block text-sm font-medium text-black dark:text-white">Email *</label>
           <input required type="email" id = "email-address" name = "email-address" class="styleit block w-full rounded-md border-white-300 dark:border-gray-700 bg-white dark:bg-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+        </div>
+        <div class = "grid">
+          <label for="reason" class="block text-sm font-medium text-black dark:text-white">Reason for contact *</label>
+          <select required id="reason" name="reason" class="styleit block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+            <option value="" disabled selected>Select a reason...</option>
+            <option value="Job Opportunity">Job Opportunity</option>
+            <option value="Project Collaboration">Project Collaboration</option>
+            <option value="Referral">Referral</option>
+            <option value="Because I am cool">Because I am cool</option>
+            <option value="Question">Question</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <div class = "grid">
           <label for="message" class="block text-black dark:text-white">Message *</label>
