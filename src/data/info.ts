@@ -36,8 +36,8 @@ export const info = {
     {
       name: "Full-Stack Machine Learning Developer",
       location: "Whizi.io | Waterloo, ON",
-      startDate: "Nov 2024",
-      endDate: "Jan 2025",
+      startDate: "Sep 2024",
+      endDate: "Dec 2024",
       description: [
         "✓ Deployed and maintained 200+ AI models for seamless web and mobile integration",
         "✓ Built scalable systems with Node.js, React, and PostgreSQL to handle 10000+ monthly messages",
