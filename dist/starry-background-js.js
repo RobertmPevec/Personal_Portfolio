@@ -12,7 +12,7 @@ const STAR_COUNT = (window.innerWidth + window.innerHeight) / 8;
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
 
-let scale = 1; // Device pixel ratio
+let scale = 1;
 let width, height;
 let stars = [];
 let pointerX, pointerY;
