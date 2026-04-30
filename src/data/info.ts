@@ -13,6 +13,7 @@ export const info = {
     "Python",
     "C++",
     "C",
+    "Java",
     "JavaScript",
     "TypeScript",
     "HTML",
